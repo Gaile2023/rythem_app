@@ -109,6 +109,20 @@ class EighthNote {
 	}
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
 		fill(100,100,100)
 		circle(this.x,this.x,this.w,this.w)
 		text(this.one, 0, 81)
