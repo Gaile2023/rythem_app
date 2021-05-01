@@ -122,7 +122,9 @@ class EighthNote {
 
 
 
-=======
+
+
+
 
 		fill(100,100,100)
 		circle(this.x,this.x,this.w,this.w)
@@ -139,4 +141,5 @@ class EighthNote {
 		text(this.le, 810, 81)
 	}
 }
+
 
