@@ -3,7 +3,7 @@ var count = [] // for counting class
 var countingcontainer = []// for counting class boxes
 var note = []// array for all note classes
 var flashCard 
-var names = ["1", "2", "3", "4", "5", "6", "Ti", "Te", "Ta", "La", "Le"]
+var names = ["1", "2", "3", "4", "5", "6", "7", "8", "Ti", "Te", "Ta", "La", "Le"]
 var counters = [];
 var county = []
 var response = []
@@ -13,12 +13,12 @@ var eighth = []
 
 
 function setup() {
-  createCanvas(900, 500);
+  createCanvas(1200, 500);
 	note.push(new HalfNote(0,0));
 	note.push(new QuarterNote(0,0));
 	note.push(new EighthNote(0,0));
 	countingcontainer.push(new CountingContainer(0, 400));
-	countingcontainer.push(new CountingContainer(490, 400))
+	countingcontainer.push(new RightCountingContainer(650, 400))
 	
 	for (var i = 0; i < names.length; i++) {
 		count.push(new Counting(40+81*i, 450, names[i]));
@@ -99,8 +99,7 @@ function mousePressed() {
 	for (var c in count) {
 		if (objDist(count[c]) <= count[c].r) { 
 			county.push(count[c].name)
-		} 
-		//if (objDist)
+		}
 	}
 }//end of mouseclicked
 
