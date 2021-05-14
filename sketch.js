@@ -1,95 +1,115 @@
 //Sketch file
 var count = [] // for counting class
-var countingcontainer = [] // for counting class boxes
-var flashhy = [] // for flashcard
-var halfn = [] // for halfnote
-var quartern = []//for quaternote
-var eighthn = []// for eighthnote
-//var notes = [HalfNote, QuarterNote, EighthNote] // array for all note classes
+var countingcontainer = []// for counting class boxes
+var note = [] // array for all note classes
+var flashCard 
+var names = ["1", "2", "3", "4", "5", "6", "7", "8", "Ti", "Te", "Ta", "La", "Le"]
+var counters = [];
+var county = []
+var response = []
+var half = []
+var quarter = []
+var eighth = []
+
+
 
 function setup() {
-  createCanvas(900, 500);
+  createCanvas(1200, 500);
+	note.push(new HalfNote(0,0))
+	note.push(new QuarterNote(0,0))
+	note.push(new EighthNote(0,0))
+   console.log(note);
+	countingcontainer.push(new CountingContainer(0, 400));
+	countingcontainer.push(new RightCountingContainer(650, 400))
+	
+	for (var i = 0; i < names.length; i++) {
+		count.push(new Counting(40+81*i, 450, names[i]));
+	}
+	
+	flashCard = new Flashcard(100, 100)
+	
+	// Create a level
+	note = lvlGen(3);
 }
 
 //counting elements
 function draw() {
   background(255);
-	for (var i = 0; i < 11; i++) {
-		count.push(new Counting(40+81*i, 450));
-	}
+	
+
+	// Drawing generic objects
 	for (var i in count) {
         count[i].show();
     }
+	
+	for (var i in countingcontainer) {
+		countingcontainer[i].show();	
+	}
+	// box around counting element(number styles)
 
 	
-	
-	// box around counting element(number styles)
-	for (var i = 0; i < 1; i++) {
-		countingcontainer.push(new CountingContainer(0, 400));
-	}
-	for (var i in countingcontainer) {
-        countingcontainer[i].show();
-    }
-	
-		// box around counting element(letter styles)
-	for (var i = 0; i < 1; i++) {
-		countingcontainer.push(new CountingContainer(490, 400));
-	}
-	for (var i in countingcontainer) {
-        countingcontainer[i].show();
-    }
-	
 	//flashcard
-	for (var i = 0; i <= 1; i++) {
-		flashhy.push(new Flashcard(100, 100));
-	}
-	for (var i in flashhy) {
-        flashhy[i].show();
+	flashCard.show()
+	
+	
+	 //halfnote
+
+	for (var i in note) {
+        note[i].show();
     }
 	
-	
-	//halfnote
+	/*
+	 //quarternote
 	for (var i = 0; i < 1; i++) {
-		halfn.push(new HalfNote(200, 200));
+		note.push(new QuarterNote(350, 160));
 	}
-	for (var i in halfn) {
-        halfn[i].show();
+	for (var i in note) {
+        note[i].show();
     }
-	
-	
-	//quarternote
-	for (var i = 0; i < 1; i++) {
-		quartern.push(new QuarterNote(350, 200));
-	}
-	for (var i in quartern) {
-        quartern[i].show();
-    }
-	
-	
 	
 	//eighthnote
 	for (var i = 0; i < 1; i++) {
-		eighthn.push(new EighthNote(500, 200));
+		note.push(new EighthNote(500, 160));
 	}
-	for (var i in quartern) {
-        quartern[i].show();
-    }
-	
+	for (var i in note) {
+        note[i].show();
+	}
 	
 	
 
 	//AnotherEighthnote
 	for (var i = 0; i < 1; i++) {
-		eighthn.push(new EighthNote(650, 200));
+		note.push(new EighthNote(650, 160));
 	}
-	for (var i in quartern) {
-        quartern[i].show();
-    }
+	for (var i in note) {
+        note[i].show();
+    }*/
+	
+}
 
+
+function objDist(obj1){	
 	
+	var a = obj1.x - mouseX;
+	var b = obj1.y - mouseY;
 	
-	
-	
+	var c = Math.sqrt((a*a) + (b*b))
+
+	return c;
+}
+
+
+function mousePressed() {
+	for (var c in count) {
+		if (objDist(count[c]) <= count[c].r) { 
+			county = count[c].name
+		}
+	}
+}//end of mouseclicked
+
+
+function keyTyped() {
+	note = lvlGen(3)
 }
 
 
