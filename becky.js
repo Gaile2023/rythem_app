@@ -12,8 +12,6 @@ class Counting {
 		this.four = "4"
 		this.five = "5"
 		this.six = "6"
-		this.seven = "7"
-		this.eight = "8"
 		this.ti = "ti"
 		this.te = "te"
 		this.ta = "ta"
@@ -50,7 +48,7 @@ class CountingContainer {
 	constructor (x,y){
 		this.x = x
 		this.y = y
-		this.w = 640
+		this.w = 480
 	} // end of constructor
 	
 	show(){
@@ -61,30 +59,6 @@ class CountingContainer {
 	}
 	
 }
-
-
-
-
-// puts box around counting elements 
-class RightCountingContainer {
-	constructor (x,y){
-		this.x = x
-		this.y = y
-		this.w = 400
-	} // end of constructor
-	
-	show(){
-		noFill();
-		stroke(1,1,1)
-		rect(this.x, this.y, this.w, this.w)
-		
-	}
-	
-}
-
-
-
-
 
 //half note
 class HalfNote {
@@ -95,6 +69,7 @@ class HalfNote {
 		this.w = 25
 		this.val = 2
 		this.spacing = 150;
+		this.active = false
 	}
 	
 	show() {
@@ -116,6 +91,7 @@ class QuarterNote {
 		this.w = 30
 		this.val = 1
 		this.spacing = 100;
+		this.active = false
 	}
 	
 	show() {
@@ -136,6 +112,7 @@ class EighthNote {
 		this.w = 25
 		this.val = 0.5 
 		this.spacing = 90;
+		this.active = false
 	}
 	
 	show() {
@@ -154,7 +131,7 @@ class EighthNote {
 
 
 function lvlGen(n) {
-	var newNotes = [] 
+	var newNotes = []
 	var answer = []
 	var spacing = 250;
 	var totalValue = 1;
@@ -183,5 +160,4 @@ function lvlGen(n) {
 	 return(newNotes);
 	
 }
-
 

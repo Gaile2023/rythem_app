@@ -1,9 +1,9 @@
 //Sketch file
 var count = [] // for counting class
 var countingcontainer = []// for counting class boxes
-var note = [] // array for all note classes
+var note = []// array for all note classes
 var flashCard 
-var names = ["1", "2", "3", "4", "5", "6", "7", "8", "Ti", "Te", "Ta", "La", "Le"]
+var names = ["1", "2", "3", "4", "5", "6", "Ti", "Te", "Ta", "La", "Le"]
 var counters = [];
 var county = []
 var response = []
@@ -12,15 +12,13 @@ var quarter = []
 var eighth = []
 
 
-
 function setup() {
-  createCanvas(1200, 500);
-	note.push(new HalfNote(0,0))
-	note.push(new QuarterNote(0,0))
-	note.push(new EighthNote(0,0))
-   console.log(note);
+  createCanvas(900, 500);
+	note.push(new HalfNote(0,0));
+	note.push(new QuarterNote(0,0));
+	note.push(new EighthNote(0,0));
 	countingcontainer.push(new CountingContainer(0, 400));
-	countingcontainer.push(new RightCountingContainer(650, 400))
+	countingcontainer.push(new CountingContainer(490, 400))
 	
 	for (var i = 0; i < names.length; i++) {
 		count.push(new Counting(40+81*i, 450, names[i]));
@@ -58,8 +56,7 @@ function draw() {
         note[i].show();
     }
 	
-	/*
-	 //quarternote
+	/* //quarternote
 	for (var i = 0; i < 1; i++) {
 		note.push(new QuarterNote(350, 160));
 	}
@@ -98,18 +95,21 @@ function objDist(obj1){
 	return c;
 }
 
-
 function mousePressed() {
 	for (var c in count) {
 		if (objDist(count[c]) <= count[c].r) { 
-			county = count[c].name
-		}
+			county.push(count[c].name)
+		} 
+		//if (objDist)
 	}
 }//end of mouseclicked
-
 
 function keyTyped() {
 	note = lvlGen(3)
 }
-
-
+/*
+	if (response.length < )
+response length must be less than # of boxes
+if 1 clicked at bottom, adds 1 to arr
+adds text in boxes when clicked.
+*/
